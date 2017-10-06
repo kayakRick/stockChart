@@ -1,0 +1,39 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.dark-primary-color    { background: #1976D2; }
+.default-primary-color { background: #2196F3; }
+.light-primary-color   { background: #BBDEFB; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #9E9E9E; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
+
+
+body {
+  background-color: #BDBDBD;
+}
+
+.app-container{
+    width: 75%;
+    height: 200px;
+    margin: 20px auto 20px auto;
+    border-radius: 10px;
+}
+
+.go-container{
+    float: right;
+}
+
+.chart-container{
+    width: 75%;
+    margin: 20px auto 20px auto;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.delete-container{
+    margin: 30px auto 20px auto;
+}
