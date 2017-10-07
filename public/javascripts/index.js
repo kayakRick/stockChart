@@ -32,7 +32,12 @@ class App extends React.Component {
 
         this.stockHistoryUrl = getBaseUrl() + "stock-history/";
         this.httpRequest = null;
-        this.ws = new WebSocket("ws://" + window.location.hostname + ":8181");
+
+        if(window.location.port != "")
+            this.ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port);
+        else
+            this.ws = new WebSocket("ws://" + window.location.hostname);
+
         this.ws.onmessage = this.onWsMessage;
     }
 

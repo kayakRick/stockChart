@@ -28615,7 +28615,9 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
         this.stockHistoryUrl = Object(__WEBPACK_IMPORTED_MODULE_4__getBaseUrl__["a" /* default */])() + "stock-history/";
         this.httpRequest = null;
-        this.ws = new WebSocket("ws://" + window.location.hostname + ":8181");
+
+        if (window.location.port != "") this.ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port);else this.ws = new WebSocket("ws://" + window.location.hostname);
+
         this.ws.onmessage = this.onWsMessage;
     }
 

@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var stockHistory = require('./routes/stock-history');
-var sock = require('./util/webSocket');
 
 var app = express();
 
