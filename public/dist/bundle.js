@@ -28582,7 +28582,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__getBaseUrl__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__stockChart__ = __webpack_require__(348);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__deleteButtons__ = __webpack_require__(488);
-
+/*******************************************************************************************************
+ * index.js is the main page for the app. It contains the App class which is the main logic. App is
+ * stateful and it controlls all the other classes in the app
+ ********************************************************************************************************/
 
 
 
@@ -28612,7 +28615,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
         this.stockHistoryUrl = Object(__WEBPACK_IMPORTED_MODULE_4__getBaseUrl__["a" /* default */])() + "stock-history/";
         this.httpRequest = null;
-        this.ws = new WebSocket("ws://localhost:8181");
+        this.ws = new WebSocket("ws://" + window.location.hostname + ":8181");
         this.ws.onmessage = this.onWsMessage;
     }
 
@@ -40837,6 +40840,11 @@ module.exports = ReactDOMInvalidARIAHook;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/********************************************************************************************************
+ * ButtonGroup encapsulates the grouo of buttons that control the time span of the graph. It is
+ * stateless
+ ********************************************************************************************************/
+
 
 
 class ButtonGroup extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
@@ -40884,6 +40892,10 @@ class ButtonGroup extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/*******************************************************************************************************
+ * GoForm renders that form in wich the user selects the stocks to graph. It is stateless
+ *******************************************************************************************************/
+
 
 
 class GoForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
@@ -40944,6 +40956,10 @@ function getBaseUrl() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_chartjs_2__ = __webpack_require__(349);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/***************************************************************************************************
+ * The StockChart class does the actual graphing of the stock prices. It is stateless
+ ***************************************************************************************************/
+
 
 
 
@@ -57606,6 +57622,11 @@ module.exports = toNumber;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/*******************************************************************************************************
+ * DeleteButtons renders the group of buttons that delete individual stocks from the graph. It is
+ * stateless
+ *******************************************************************************************************/
+
 
 
 class DeleteButtons extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
