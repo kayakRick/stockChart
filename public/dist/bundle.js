@@ -28603,6 +28603,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         this.onButtonGroupClick = this.onButtonGroupClick.bind(this);
         this.onStockSymbolChange = this.onStockSymbolChange.bind(this);
         this.onGoFormClick = this.onGoFormClick.bind(this);
+        this.onGoFormSubmit = this.onGoFormSubmit.bind(this);
         this.alertContents = this.alertContents.bind(this);
         this.onDeleteClick = this.onDeleteClick.bind(this);
         this.onWsMessage = this.onWsMessage.bind(this);
@@ -28634,6 +28635,12 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
     onStockSymbolChange(e) {
         this.setState({ stockSymbol: e.target.value.trim().toUpperCase() });
+    }
+
+    onGoFormSubmit(e) {
+        e.preventDefault();
+
+        if (this.state.stockSymbol.length >= 3 && this.state.stockSymbol.length <= 5) this.onGoFormClick();
     }
 
     onGoFormClick() {
@@ -28714,7 +28721,8 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__buttonGroup__["a" /* default */], { selected: this.state.selectedButton, onClick: this.onButtonGroupClick }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__goForm__["a" /* default */], { onChange: this.onStockSymbolChange, value: this.state.stockSymbol,
-                    onClick: this.onGoFormClick }),
+                    onClick: this.onGoFormClick,
+                    onSubmit: this.onGoFormSubmit }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__deleteButtons__["a" /* default */], { stocks: this.state.stocks, onClick: this.onDeleteClick })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__stockChart__["a" /* default */], { stocks: this.state.stocks,
@@ -40911,7 +40919,7 @@ class GoForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
             { className: " go-container" },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "form",
-                { className: "form-inline" },
+                { className: "form-inline", onSubmit: this.props.onSubmit },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "div",
                     { className: "form-group" },

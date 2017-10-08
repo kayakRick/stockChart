@@ -12,7 +12,7 @@ export default class GoForm extends React.Component {
         let disabled = this.props.value.length >= 3 && this.props.value.length <= 5 ? "" : "disabled";
         return(
             <div className=" go-container">
-            <form className="form-inline">
+            <form className="form-inline" onSubmit={this.props.onSubmit}>
                 <div className="form-group">
                     <input id="in" type="text" className="form-control" placeholder="Enter a stock symbol"
                            maxLength="5" size="20"

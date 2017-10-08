@@ -20,6 +20,7 @@ class App extends React.Component {
         this.onButtonGroupClick = this.onButtonGroupClick.bind(this);
         this.onStockSymbolChange = this.onStockSymbolChange.bind(this);
         this.onGoFormClick = this.onGoFormClick.bind(this);
+        this.onGoFormSubmit = this.onGoFormSubmit.bind(this);
         this.alertContents = this.alertContents.bind(this);
         this.onDeleteClick = this.onDeleteClick.bind(this);
         this.onWsMessage = this.onWsMessage.bind(this);
@@ -54,6 +55,13 @@ class App extends React.Component {
 
     onStockSymbolChange(e){
         this.setState({stockSymbol: e.target.value.trim().toUpperCase()});
+    }
+
+    onGoFormSubmit(e){
+        e.preventDefault();
+
+        if(this.state.stockSymbol.length >= 3 && this.state.stockSymbol.length <= 5)
+            this.onGoFormClick();
     }
 
     onGoFormClick(){
@@ -129,7 +137,8 @@ class App extends React.Component {
                     <h1 className=" text-center text-primary-color">Stock Chart</h1>
                     <ButtonGroup selected={this.state.selectedButton} onClick={this.onButtonGroupClick}/>
                     <GoForm onChange={this.onStockSymbolChange} value={this.state.stockSymbol}
-                            onClick={this.onGoFormClick}/>
+                            onClick={this.onGoFormClick}
+                            onSubmit={this.onGoFormSubmit}/>
                     <DeleteButtons stocks={this.state.stocks} onClick={this.onDeleteClick}/>
                 </div>
                 <StockChart stocks={this.state.stocks}
